@@ -1,0 +1,38 @@
+{% extends "questions/base.html" %}
+{% load static%}
+{% block content %}
+
+<div class = "row>">
+    <div class = "col-sm>">
+        <p class = "text-muted text-center">Section : {{considered_prop.section}}</p>
+        <p class = "text-muted text-center">Thème : {{considered_prop.theme}}</p>
+        <p class = "lead text-center">{{considered_prop.proposition}}</p>
+    </div>
+</div>
+
+<div class = "row>">
+    <div class="col-sm text-center">
+        <form action = "{%url 'formulaire' tok indice_suiv%}" method="post">
+            {% csrf_token %}
+            {{ propForm.as_p }}
+
+            <a href="{%url 'formulaire' tok indice_suiv%}"><input type = 'submit' value = 'Suivant'></a>
+
+        </form>
+    </div>
+
+    <div class="col-sm text-center">
+        Proposition {{indice_suiv}} sur {{arr_prop|length}}
+    </div>
+</div>
+
+<div class = "row">
+    <div class="col-sm">
+
+
+
+    </div>
+
+
+</div>
+{% endblock content %}

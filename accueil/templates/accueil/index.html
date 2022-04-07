@@ -1,0 +1,57 @@
+
+
+{% extends "accueil/base.html" %}
+
+{% block title %} Accueil {% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-sm">
+    Les règles du jeu :
+    <ul>
+        <li>Il faut noter chaque proposition par une notre entre 0 et 10.</li>
+        <li>Il est possible de ne pas considérer une proposition si vous la jugez pas importante.</li>
+
+    </ul>
+</div>
+<div class = "row>"
+    <div class="col-sm">
+        Pour commencer le questionnaire : <a href="{% url 'form_creator'%}">clique ici</a> !
+    </div>
+</div>
+
+<div class = "row>">
+    <div class="col-sm">
+        <h4>Tournesol</h4>
+
+        <p>Je vous conseille également d'aller visiter ce site : <a href="https://tournesol.app/presidentielle2022/">tournesol.app</a> !</p>
+        <p>Il est trés abouti à tout point de vu et la démarche qui l'accompagne est admirable !</p>
+    </div>
+</div>
+
+<div class = "row>">
+    <div class="col-sm">
+        <h4>Elyze</h4>
+        <p>
+            Bien que cette application n'ait pas vraiment besoin de publicité, je vous mets le lien ici :
+            <dl>
+                <dt>Sur IOS :</dt>
+                <dd><a href = "https://play.google.com/store/apps/details?id=com.lesengages.elyze&hl=fr_CH&gl=US">Elyze</a></dd>
+                <dt>Sur Android :</dt>
+                <dd><a href="https://apps.apple.com/fr/app/elyze-pr%C3%A9sidentielle-2022/id1598620925">Elyze</a> </dd>
+
+
+            </dl>
+
+
+        </p>
+    </div>
+</div>
+
+
+
+
+{% endblock content%}
+

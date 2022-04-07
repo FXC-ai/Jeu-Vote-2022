@@ -1,0 +1,75 @@
+{% extends "questions/base.html" %}
+{% load static%}
+{% block content %}
+
+<div class = "row">
+    <div class="col-sm">
+    <h2>Résultats :</h2>
+    </div>
+</div>
+
+<div class = "row">
+    <div class="col-sm">
+    <table class = "table table-hover table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Candidat</th>
+                <th>Note moyenne</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {%for candidat in sorted_rst%}
+            <tr>
+                <td>{{candidat.0}}</td>
+                <td>{{candidat.1.2|floatformat}} / 10</td>
+            </tr>
+        {%endfor%}
+        </tbody>
+
+    </table>
+    </div>
+</div>
+
+<div class = "row">
+    <div class="col-sm">
+        <h2>Réponses : </h2>
+    </div>
+</div>
+
+<div class = "row">
+    <div class="col-sm">
+    <table class = "table table-hover table-striped table-bordered">
+        <thead class = "thead-dark">
+            <tr>
+                <th>Section</th>
+                <th>Proposition</th>
+                <th>Note</th>
+                <th>Importance</th>
+                <th>Candidat</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            {%for prop in arr_prop%}
+            <tr>
+                <td>{{prop.0.section}}</td>
+                <td>{{prop.0.proposition}}</td>
+
+                <td>{{prop.1}}</td>
+                {%if prop.2%}
+                    <td>Pas Important</td>
+                {%else%}
+                    <td></td>
+                {%endif%}
+
+
+                <td>{{prop.0.candidat}}</td>
+
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+    </div>
+</div>
+{%endblock content %}

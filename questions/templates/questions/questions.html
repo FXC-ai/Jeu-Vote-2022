@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titre}}</title>
+    <link rel = "stylesheet" href="{%static 'questions/css/style.css' %}" type="text/css" media="screen">
+</head>
+<body>
+
+    <div>
+        <form action = "{%url 'questions' %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type = 'submit' value = 'submit'>
+        </form>
+
+    </div>
+    <aside>
+            {% for image in images %}
+                {% with 'questions/images/'|add:image.filename as filepath %}
+                    <h2>{{ image.nom_candidat }}</h2>
+
+                    <img src="{%static filepath%}">
+                    <p>Source : {%static filepath%}</p>
+                {% endwith %}
+            {% endfor %}
+
+    </aside>
+</body>
+</html>
